@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns="http://www.w3.org/1999/html" layout:decorate="~{fragments/layout}" lang="en"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<body>
+	<th:block layout:fragment="content">
+		<div class="container">
+			<h1>Bookings</h1>
+			<h3>Search by:</h3>
+			<form action="/calender" method="get" th:object="${search}">
+				<div class="form-group">
+					<div class="form-group">
+						<label>Start date</label> <input id="datepicker" type="text" th:field="*{startDate}" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label>End date</label> <input id="datepicker_2" type="text" th:field="*{endDate} " class="form-control" />
+					</div>
+					<div class="form-group">
+						<button class="btn btn-primary" type="submit">search</button>
+					</div>
+
+				</div>
+			</form>
+			<br> <br> <a href="/bookings/new" class="btn btn-primary mt-3 mb-5" sec:authorize="hasAnyRole('ROLE_USER')">New
+				Booking</a> <br> <br>
+			<h3 class="mt-5" th:if="${bookings?.size() == 0}">There are no meetings currently scheduled for this date.</h3>
+
+			<div class="row row-striped border border-success rounded mb-1" th:each="booking: ${bookings}">
+				<div class="col-2 text-right">
+					<h1 class="display-4">
+						<span class="badge badge-secondary" th:text="${booking.displayDay}">dd</span>
+					</h1>
+					<h2 th:text="${booking.displayMonth}">MMM</h2>
+				</div>
+				<div class="col-10">
+					<h3 class="text-uppercase">
+						<strong><span th:text="${booking.title}"></span></strong>
+					</h3>
+					<ul class="list-inline">
+						<li class="list list-inline-item"><i class="fa fa-calender-o" aria-hidden="true"></i> <span
+							th:text="${booking.displayDayOfWeek}"></span></li>
+
+						<li class="list list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> <span
+							th:text="|${booking.startTime} - ${booking.endTime}|"></span></li>
+
+						<li class="list list-inline-item"><i class="fa fa-location-arrow" aria-hidden="true"></i> <span
+							th:text="${booking.room.name}">room</span></li>
+					</ul>
+					<div class="row">
+						<div class="col-6">
+							<p class="mb-0">
+								Booked by : <span th:text="${booking.user.firstName + ' '+booking.user.lastName }"></span>
+							</p>
+							<p class="mb-0">
+								Room layout : <span th:text="${booking.layout.description}"></span>
+							</p>
+							<p class="mb-0">
+								Participants : <span th:text="${booking.participants}">participants</span>
+							</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</th:block>
+
+</body>
+</html>

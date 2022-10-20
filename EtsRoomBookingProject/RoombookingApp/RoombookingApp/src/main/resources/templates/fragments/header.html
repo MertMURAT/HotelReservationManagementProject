@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<body>
+	<div th:fragment="header"
+		class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3  border-bottom box-shadow bg-info text-white">
+		<h5 class="my-0 mr-md-auto font-weight-normal">Room Booking</h5>
+		<span class="my-0 mr-md-auto font-weight-normal text-white"  sec:authorize="isAuthenticated()"> Connected user: <span th:text ="${#authentication.getPrincipal().getUsername()}"></span></span>
+		<nav class="my-2 my-md-0 mr-md-3 text-white">
+			<a class="p-2 text-white" th:href="@{/}">Home</a> <a sec:authorize="!isAuthenticated()" class="p-2 text-white"
+				th:href="@{login}">Login</a>
+			<!-- 				<a class="p-2 text-dark" th:href="@{/}" sec:authorize="isAuthenticated()">Calendar</a> -->
+			<a class="p-2 text-white" th:href="@{/rooms}" sec:authorize="hasAnyRole('ROLE_ADMIN')">Rooms</a> <a
+				class="p-2 text-white" th:href="@{/users}" sec:authorize="hasAnyRole('ROLE_ADMIN')">Users</a> <a
+				class="p-2 text-white" th:href="@{/bookings}" sec:authorize="hasAnyRole('ROLE_ADMIN')">Reservations</a> 
+				<a
+				class="p-2 text-white" th:href="@{/bookings}" sec:authorize="hasAnyRole('ROLE_USER')">My Reservations</a> 
+<!-- 				<a -->
+<!-- 				class="p-2 text-dark" th:href="@{/bookings}" sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_USER')">Booked rooms</a>  -->
+<!-- 				<a -->
+<!-- 				class="p-2 text-dark" th:href="@{/bookings}" sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_USER')">Avialable -->
+<!-- 				rooms</a> -->
+
+		</nav>
+		
+		<a class="btn btn-outline-success text-white" th:href="@{/register}" sec:authorize="!isAuthenticated()">Sign up</a> <a
+			class="btn btn-outline-danger text-white" th:href="@{/logout}" sec:authorize="isAuthenticated()"> <span class="menu-title">Logout</span>
+		</a>
+	</div>
+</body>
+</html>

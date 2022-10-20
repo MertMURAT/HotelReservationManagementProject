@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns="http://www.w3.org/1999/html" layout:decorate="~{fragments/layout}" lang="en">
+
+<body>
+	<th:block layout:fragment="content">
+		<div class="container">
+			<section class="vh-100">
+				<div class="container-fluid h-custom">
+					<div class="row d-flex justify-content-center align-items-center h-100">
+
+						<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+							<form th:action="@{/register}" method="post" th:object="${user}">
+								<div class="form-outline mb-4">
+									<label class="form-label" for="form3Example3"> First name</label> <input type="text" id="form3Example3"
+										class="form-control form-control-lg" placeholder="Enter your first name" name="fisrtName"
+										th:field="*{firstName}" />
+									<div class="alert alert-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+								</div>
+								<div class="form-outline mb-4">
+									<label class="form-label" for="form3Example3"> Last name</label> <input type="text" id="form3Example3"
+										class="form-control form-control-lg" placeholder="Enter your last name" name="lastName" th:field="*{lastName}" />
+									<div class="alert alert-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+								</div>
+								<div class="form-outline mb-4">
+									<label class="form-label" for="form3Example3">Email address</label> <input type="email" id="form3Example3"
+										class="form-control form-control-lg" placeholder="Enter a valid email address" name="email"
+										th:field="*{email}" />
+									<div class="alert alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+								</div>
+
+								<div class="form-outline mb-3">
+									<label class="form-label" for="form3Example4">Password</label> <input type="password" id="form3Example4"
+										class="form-control form-control-lg" placeholder="Enter password" name="password" th:field="*{password}" />
+									<div class="alert alert-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+								</div>
+								<div class="text-center text-lg-start mt-4 pt-2">
+									<button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Register</button>
+									<p class="small fw-bold mt-2 pt-1 mb-0">
+										Already have an account? <a th:href="@{/login}" class="link-danger">Login</a>
+									</p>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</th:block>
+</body>
+
+</html>
+

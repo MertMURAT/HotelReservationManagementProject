@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns="http://www.w3.org/1999/html" layout:decorate="~{fragments/layout}" lang="en">
+<body>
+	<th:block layout:fragment="content">
+		<div class="container">
+			<h1>
+				<span th:if="${user.id == null}">Add</span> <span th:if="${user.id != null}">Edit</span> User
+			</h1>
+
+			<div th:if="${#message}" class="bg-warning p-5" th:text="|Something went wrong: ${#message} |"></div>
+			<form th:object="${user}" th:action="@{/users/save}" method="post">
+				<div class="form-group">
+					<label for="name">First name</label> <input type="text" class="form-control" id="fName" placeholder="user name"
+						th:field="*{firstName}" th:value="${firstName}">
+					<div class="alert alert-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+				</div>
+				<div class="form-group">
+					<label for="name">Last Name</label> <input type="text" class="form-control" id="lName" placeholder="user name"
+						th:field="*{lastName}" th:value="${lastName}">
+					<div class="alert alert-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+				</div>
+
+				<div class="form-group">
+					<label for="name">Email</label> <input type="email" class="form-control" id="name" placeholder="user name"
+						th:field="*{email}" th:value="${email}">
+					<div class="alert alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+				</div>
+
+				<div class="form-group">
+					<label for="name">Password</label> <input type="password" class="form-control" id="password" placeholder="password"
+						th:field="*{password}">
+					<div class="alert alert-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+				</div>
+
+				<div class="form-group">
+					<label for="name">Role</label> <select class="form-control form-control-lg" id="facility" th:field="*{role}"
+						th:value="${role}">
+						<option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.code}"></option>
+					</select>
+					<div class="alert alert-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+				</div>
+
+				<input type="hidden" th:field="*{id}" th:value="${id}"></input> <input type="hidden" th:field="*{enabled}"
+					th:value="${enabled}"></input>
+				<button type="submit" class="btn btn-primary">Save</button>
+			</form>
+
+		</div>
+	</th:block>
+
+</body>
+</html>

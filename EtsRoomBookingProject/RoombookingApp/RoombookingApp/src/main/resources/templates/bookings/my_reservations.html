@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns="http://www.w3.org/1999/html" layout:decorate="~{fragments/layout}" lang="en">
+
+<body>
+	<th:block layout:fragment="content">
+		<div class="container">
+			<h1>Room Reservations</h1>
+			<a href="/bookings/new" class="btn btn-warning mb-3">Add a reservation</a>
+			<div class="row  d-flex justify-content-center">
+				<div class="col-12">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Room</th>
+								<th>Event</th>
+								<th>Date</th>
+								<th>Start Time</th>
+								<th>End Time</th>
+								<th>User</th>
+								<th>Status</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="booking: ${bookings}">
+								<td th:text="${booking.room?.name}"></td>
+								<td th:text="${booking.title}"></td>
+								<td th:text="${booking.date}"></td>
+								<td th:text="${booking.startTime}"></td>
+								<td th:text="${booking.endTime}"></td>
+								<td th:text="${booking.user?.firstName + ' ' +booking.user?.lastName}"></td>
+								<td  th:text="${booking.status}"></td>
+								<td><a class="btn btn-primary" th:href="@{/bookings/validate/{id}(id=${booking.id})}" onclick=" return confirm('Are you sure you want to validate this booking?');">Validate</a> <a
+									class="btn btn-warning" th:href="@{/bookings/cancel/{id}(id=${booking.id})}" onclick=" return confirm('Are you sure you want to cancel this booking?');">Cancel</a> <a
+									class="btn btn-danger" th:href="@{/bookings/delete/{id}(id=${booking.id})}"
+									onclick=" return confirm('Are you sure you want to delete this booking?');">Delete</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<script>
+				function showRoomDetails(id) {
+					$(".roomDetails").hide();
+					$("#room-" + id).show();
+				}
+			</script>
+		</div>
+	</th:block>
+</body>
+</html>
