@@ -31,3 +31,30 @@ yetkileri atanmıştır.
 
 -Kullanıcı Rezervasyonunu tanımladıktan sonra admin kendi arayüz yetkilendirmesinden onaylayıp reddederse
 kendi kullanıcı arayüzündeki rezervasyon sayfa sekmesinden onay durumunu görüntüleyebilir.
+
+Kullanılan Teknolojiler:
+
+Technology Stack :
+ 
+ Back-end
+  
+ ->Java (Programming Language)
+ ->Spring Boot (Application Platform)
+ ->Spring Data JPA (Data Persistance)
+ ->H2 Database
+ ->Swagger
+ ->Maven
+ ->Spring Security-Authentication
+ 
+ Front-end
+ 
+ ->Thymeleaf
+ ->Javascript
+ ->Html
+ ->Css
+ ->Bootstrap
+ 
+ Database
+ 
+ ->Mysql
+ 
