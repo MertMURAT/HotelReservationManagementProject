@@ -39,19 +39,27 @@ Technology Stack :
  Back-end
   
  ->Java (Programming Language)
+ 
  ->Spring Boot (Application Platform)
+ 
  ->Spring Data JPA (Data Persistance)
- ->H2 Database
+ 
  ->Swagger
+ 
  ->Maven
+ 
  ->Spring Security-Authentication
  
  Front-end
  
  ->Thymeleaf
+ 
  ->Javascript
+ 
  ->Html
+ 
  ->Css
+ 
  ->Bootstrap
  
  Database
