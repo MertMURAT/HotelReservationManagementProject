@@ -46,8 +46,6 @@ Kullanılan Teknolojiler:
  
  ->Spring Data JPA (Data Persistance)
  
- ->Swagger
- 
  ->Maven
  
  ->Spring Security-Authentication
