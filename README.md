@@ -32,9 +32,10 @@ yetkileri atanmıştır.
 -Kullanıcı Rezervasyonunu tanımladıktan sonra admin kendi arayüz yetkilendirmesinden onaylayıp reddederse
 kendi kullanıcı arayüzündeki rezervasyon sayfa sekmesinden onay durumunu görüntüleyebilir.
 
+
 Kullanılan Teknolojiler:
 
-Technology Stack :
+
  
  Back-end
   
