@@ -37,7 +37,7 @@ Kullanılan Teknolojiler:
 
 
  
- Back-end
+ --Back-end--
   
  ->Java (Programming Language)
  
@@ -51,7 +51,7 @@ Kullanılan Teknolojiler:
  
  ->Spring Security-Authentication
  
- Front-end
+ --Front-end--
  
  ->Thymeleaf
  
@@ -63,7 +63,7 @@ Kullanılan Teknolojiler:
  
  ->Bootstrap
  
- Database
+ --Database--
  
  ->Mysql
  
