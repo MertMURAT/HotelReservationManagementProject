@@ -33,36 +33,35 @@ yetkileri atanmıştır.
 kendi kullanıcı arayüzündeki rezervasyon sayfa sekmesinden onay durumunu görüntüleyebilir.
 
 
-Kullanılan Teknolojiler:
+# Kullanılan Teknolojiler :
 
 
  
- --Back-end--
+ # Back-end :
  
   
- ->Java (Programming Language)
+ - [x] Java (Programming Language)
  
- ->Spring Boot (Application Platform)
+ - [x] Spring Boot (Application Platform)
  
- ->Spring Data JPA (Data Persistance)
+ - [x] Spring Data JPA (Data Persistance)
  
- ->Maven
+ - [x] Maven
  
- ->Spring Security-Authentication
- 
- 
- --Front-end--
+ - [x] Spring Security (Roled based)
  
  
- ->Thymeleaf
+ # Front-end : 
  
- ->Javascript
+ - [x] Thymeleaf
  
- ->Html
+ - [x] Javascript
  
- ->Css
+ - [x] Html
  
- ->Bootstrap
+ - [x] Css
+ 
+ - [x] Bootstrap
  
  
  # Database :
