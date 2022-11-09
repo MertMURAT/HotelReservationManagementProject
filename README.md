@@ -65,8 +65,8 @@ Kullanılan Teknolojiler:
  ->Bootstrap
  
  
- --Database--
+ # Database :
  
- ->Mysql
- ->H2 Database
+ - [x]Mysql
+ - [x]H2 Database
  
